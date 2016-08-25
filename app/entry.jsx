@@ -1,15 +1,15 @@
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import App from './app.jsx';
-import Editor from './editor.jsx';
-import Previewer from './previewer.jsx';
+import Articles from './articles.jsx';
+import Article from './article.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 const router = <Router history={hashHistory}>
   <Route path='/' component={App}>
-    <IndexRoute component={Editor} />
-  	<Route path='editor' component={Editor} />
-  	<Route path='previewer' component={Previewer} />
+    <IndexRedirect to="/articles"/>
+    <Route path='articles' component={Articles}/>
+    <Route path='article/:id' component={Article}/>
   </Route>
 </Router>;
 
